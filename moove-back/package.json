@@ -1,0 +1,45 @@
+{
+  "name": "moove-back",
+  "version": "1.0.0",
+  "description": "ECHO está ativado.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "migration:generate": "npm run typeorm migration:generate -- ./src/migrations/<NOME_MIGRATION> -d ./src/data-source.ts",
+    "migration:run": "npm run typeorm migration:run -- -d ./src/data-source.ts",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "start": "node dist/index.js",
+    "build": "npx tsc",
+    "db:update": "npm run build && npm run migration:run"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@hapi/boom": "^10.0.1",
+    "@whiskeysockets/baileys": "^7.0.0-rc14",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.2.0",
+    "mysql2": "^3.23.3",
+    "node-cron": "^4.6.0",
+    "reflect-metadata": "^0.2.2",
+    "typeorm": "^1.1.0"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/multer": "^2.2.0",
+    "@types/node": "^26.2.0",
+    "@types/node-cron": "^3.0.11",
+    "ts-node": "^10.9.2"
+  }
+}
