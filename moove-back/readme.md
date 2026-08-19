@@ -33,6 +33,10 @@
 
 `node dist/index.js`
 
+**Execuar o arquivo gerado com node com a transpilação para js:**
+`npm install ts-node-dev typescript --save-dev`
+[Execução:]`npm run dev`
+
 **Instalar as dependências para conectar o Node.js (TypeScript) com banco de dados:**
 
 `npm install typeorm --save`

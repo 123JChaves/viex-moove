@@ -1,19 +1,21 @@
 {
   "name": "moove-back",
   "version": "1.0.0",
-  "description": "ECHO está ativado.",
+  "description": "API para o bot e para a administração do atendimento da madrugada Viex",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
+    "dev": "npm run build && npm run start",
     "typeorm": "typeorm-ts-node-commonjs",
-    "migration:generate": "npm run typeorm migration:generate -- ./src/migrations/<NOME_MIGRATION> -d ./src/data-source.ts",
+    "migration:generate": "npm run typeorm migration:generate -- -d ./src/data-source.ts",
     "migration:run": "npm run typeorm migration:run -- -d ./src/data-source.ts",
     "test": "jest",
     "test:watch": "jest --watch",
     "start": "node dist/index.js",
     "build": "npx tsc",
-    "db:update": "npm run build && npm run migration:run"
+    "db:update": "npm run build && npm run migration:run",
+    "db:sync": "npm run migration:generate -- ./src/migrations/AtualizacaoBanco && npm run db:update"
   },
+
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -40,6 +42,9 @@
     "@types/multer": "^2.2.0",
     "@types/node": "^26.2.0",
     "@types/node-cron": "^3.0.11",
-    "ts-node": "^10.9.2"
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "tsx": "^4.23.12",
+    "typescript": "^7.0.2"
   }
 }
